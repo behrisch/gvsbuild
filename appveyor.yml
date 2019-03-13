@@ -28,9 +28,9 @@ install:
     C:\Python37%PYTHON% -m pip install wheel
 
 build_script:
-  - C:\Python36%PYTHON% build.py build --archives-download-dir=%DOWNLOAD_DIR% --platform=%PLATFORM% --vs-ver=%VS_VER% --enable-gi --py-wheel gtk3-full pycairo pygobject
-  - C:\Python35%PYTHON% build.py build --archives-download-dir=%DOWNLOAD_DIR% --platform=%PLATFORM% --vs-ver=%VS_VER% --enable-gi --py-wheel pycairo pygobject
-  - C:\Python37%PYTHON% build.py build --archives-download-dir=%DOWNLOAD_DIR% --platform=%PLATFORM% --vs-ver=%VS_VER% --enable-gi --py-wheel pycairo pygobject
+  - C:\Python36%PYTHON% build.py build --archives-download-dir=%DOWNLOAD_DIR% --platform=%PLATFORM% --vs-ver=%VS_VER% --enable-gi --gtk3-ver 3.22 --py-wheel gtk3-full pycairo pygobject
+  - C:\Python35%PYTHON% build.py build --archives-download-dir=%DOWNLOAD_DIR% --platform=%PLATFORM% --vs-ver=%VS_VER% --enable-gi --gtk3-ver 3.22 --py-wheel pycairo pygobject
+  - C:\Python37%PYTHON% build.py build --archives-download-dir=%DOWNLOAD_DIR% --platform=%PLATFORM% --vs-ver=%VS_VER% --enable-gi --gtk3-ver 3.22 --py-wheel pycairo pygobject
   - set PATH=%PATH%;C:\msys64\usr\bin
   - tar.exe -zcf gvsbuild-vs%VS_VER%-%PLATFORM%.tar.gz -C /c/gtk-build/gtk/%MSVC_PLATFORM% release
   - tar.exe -zxf gvsbuild-vs%VS_VER%-%PLATFORM%.tar.gz --exclude include --exclude *.pdb --exclude *.exe
